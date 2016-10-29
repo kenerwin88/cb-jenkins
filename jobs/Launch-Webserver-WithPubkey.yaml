@@ -1,0 +1,42 @@
+- job:
+    name: Launch Webserver with-PublicKey
+    description: 'This job will launch a new CoreOS instance on AWS, which will then in-turn run the "kenerwin88/cbweb" docker container, accessible via port 80 on the instance.  And, it will also add the submitted public key for the core user.'
+    parameters:
+      - string:
+          name: 'AWS_ACCESS_KEY_ID'
+          default: 'AKISOMETHING'
+          description: 'Please specify AWS Access Key ID.'
+      - string:
+          name: 'AWS_SECRET_ACCESS_KEY'
+          default: 'jHSeCretKeyfRomAWS'
+          description: 'Please specify AWS Access Key ID.'
+      - choice:
+          name: region
+          choices:
+            - 'us-west-2'
+            - 'us-west-1'
+            - 'us-east-2'
+            - 'us-east-1'
+            - 'ap-south-1'
+            - 'ap-northeast-2'
+            - 'ap-southeast-1'
+            - 'ap-southeast-2'
+            - 'ap-northeast-1'
+            - 'eu-central-1'
+            - 'eu-west-1'
+            - 'sa-east-1'
+          description: 'Please select AWS Region to launch Webserver.'
+      - string:
+          name: 'ami'
+          default: 'ami-bef450de'
+          description: 'Please specify CoreOS AMI to deploy.'
+      - string:
+          name: 'ssh_key_name'
+          default: 'CoinbaseKey'
+          description: 'Please specify AWS SSH key name.'
+      - file:
+          name: pubkey
+          description: "Please upload a public key file."
+    builders:
+      - shell: |
+          python /scripts/newInstanceWithPubKey.py $AWS_ACCESS_KEY_ID $AWS_SECRET_ACCESS_KEY $region $ami $ssh_key_name
