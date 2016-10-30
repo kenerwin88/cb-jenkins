@@ -45,6 +45,6 @@ Here's the URLs to the containers on DockerHub.com:
 - [https://hub.docker.com/r/kenerwin88/cbweb/](https://hub.docker.com/r/kenerwin88/cbweb/)
 - [https://hub.docker.com/r/kenerwin88/cb-challenge/](https://hub.docker.com/r/kenerwin88/cb-challenge/)
 
-I did want to add a job to take care autoscaling, unfortunately I've been much busier today than I thought I would be.  Also, I'd probably use ECS or at least consider it for production, and I'd also want to set up etcd or consul for service discovery.  Plus it would be nice to add some monitoring as well, and to clean up the code/add error handling.  Overall it was a fun challenge and thank you so much for taking the time to read this!
+I did want to add a job to take care of autoscaling, unfortunately I've been much busier today than I thought I would be.  Also, I'd probably use ECS or at least consider it for production, and I'd also want to set up etcd or consul for service discovery.  Plus it would be nice to add some monitoring as well, and to clean up the code/add error handling.  Overall it was a fun challenge and thank you so much for taking the time to read this!
 
 :) - Ken
